@@ -3,85 +3,199 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document </title>
+        <title>Document</title>
     </head>
     <body>
-        <main id="main"><!-- cassa que abriga tudo-->
+        <!-- cassa que abriga tudo-->
+        <main id="main">
             <!--titulo do conteudo-->
             <h1 id="titulo">Busque os repositórios do GitHub</h1>
-            <article id="corpo"><!--corpo-->
-                <section class="sessão-input"><!--sessao dos inputs-->
-                    <form><!--formulario-->
-                        <input type="text" placeholder="Digite o nome do usuário no Github" id="input-text"><!--input de barra de texto-->
-                        <button id="botão">Pesquisar<img src="assets/imgs/bitcoin-icons_search-filled.png"></button><!--botão de enviar-->
-                    </form>
-                </section>
+            <!--sessao dos inputs-->
+            <section class="sessão-input">
+                <!--formulario-->
+                <form>
+                    <input
+                        type="text"
+                        placeholder="Digite o nome do usuário no Github"
+                        id="input-text"
+                    /><!--input de barra de texto-->
+                    <button id="botão">
+                        <!--botão de enviar-->
+                        Pesquisar<img
+                            src="assets/imgs/bitcoin-icons_search-filled.png"
+                        />
+                    </button>
+                </form>
+            </section>
 
-                <!--SESSÃO TESTE PRO CSS-->
+            <!--SESSÃO TESTE PRO CSS-->
+            <section id="sessao-retorno">
+                <!--sessao que agrupa todo o retorno do git hub-->
+                <div class="retorno-valido">
+                    <!--corpo do retorno valido-->
+                    <div class="div-github">
+                        <!--div com  informações do usuario-->
+                        <img src="#" /><!--img do perfil-->
+                        <h2>joão</h2>
+                        <!--nome-->
+                        <p>servo</p>
+                        <!--profissao-->
 
-                <section id="sessao-retorno"><!--sessao que agrupa todo o retorno do git hub-->
-                    <div class="retorno-valido"><!--corpo do retorno valido-->
-                        <header class="header-github"><!--header com  informações do usuario-->
-                            <img src="#" ><!--img do perfil-->
-                            <h2>joão</h2><!--nome-->
-                            <p>servo</p><!--profissao-->
-
-                            <ul><!--nav de links-->
-                                <li><img src="+" alt="" class="img-lista">seguidores</li>
-                                <li><img src="+" alt="" class="img-lista">seguindo</li>
-                                <li><img src="+" alt="" class="img-lista">localoização</li>
-                                <li><img src="+" alt="" class="img-lista">link</li>
-                            </ul>
-                        </header>
-                        <section class="container-repositorio"><!--container que abriga os repositorios-->
-
-                            <div class="repositorios"> <!--divs de repositorios-->
-                                <h3 class="nome-repositorio">desafio front</h3><!--titulo dos repositorios-->
-                                <p class="descriçao-repositorio">um desafio da incod</p><!--descrição do repositorio-->
-                                <img src="$" class="estrela-img"><!--img estrela-->
-                                <span class="quantidade-estrela">estrelas: 5</span><!--num de eestreçllas-->
-                                <a href="*" class="link-repositorio">link repositorio</a><!--linkl do repositorio no proprio github-->
-                            </div>
-                            <div class="repositorios">
-                                <h3 class="nome-repositorio">desafio front</h3>
-                                <p class="descriçao-repositorio">um desafio da incod</p>
-                                <img src="$" class="estrela-img">
-                                <span class="quantidade-estrela">estrelas: 5</span>
-                                <a href="*" class="link-repositorio">link repositorio</a>
-                            </div>
-                            <div class="repositorios">
-                                <h3 class="nome-repositorio">desafio front</h3>
-                                <p class="descriçao-repositorio">um desafio da incod</p>
-                                <img src="$" class="estrela-img">
-                                <span class="quantidade-estrela">estrelas: 5</span>
-                                <a href="*" class="link-repositorio">link repositorio</a>
-                            </div>
-                            <div class="repositorios">
-                                <h3 class="nome-repositorio">desafio front</h3>
-                                <p class="descriçao-repositorio">um desafio da incod</p>
-                                <img src="$" class="estrela-img">
-                                <span class="quantidade-estrela">estrelas: 5</span>
-                                <a href="*" class="link-repositorio">link repositorio</a>
-                            </div>
-                            <div class="repositorios">
-                                <h3 class="nome-repositorio">desafio front</h3>
-                                <p class="descriçao-repositorio">um desafio da incod</p>
-                                <img src="$" class="estrela-img">
-                                <span class="quantidade-estrela">estrelas: 5</span>
-                                <a href="*" class="link-repositorio">link repositorio</a>
-                            </div>
-                            <div class="repositorios">
-                                <h3 class="nome-repositorio">desafio front</h3>
-                                <p class="descriçao-repositorio">um desafio da incod</p>
-                                <img src="$" class="estrela-img">
-                                <span class="quantidade-estrela">estrelas: 5</span>
-                                <a href="*" class="link-repositorio">link repositorio</a>
-                            </div>
-                        </section>
+                        <ul>
+                            <!--nav de links-->
+                            <li>
+                                <img
+                                    src="+"
+                                    alt=""
+                                    class="img-lista"
+                                />seguidores
+                            </li>
+                            <li>
+                                <img src="+" alt="" class="img-lista" />seguindo
+                            </li>
+                            <li>
+                                <img
+                                    src="+"
+                                    alt=""
+                                    class="img-lista"
+                                />localoização
+                            </li>
+                            <li>
+                                <img src="+" alt="" class="img-lista" />link
+                            </li>
+                        </ul>
                     </div>
-                </section>
-            </article>
+                    <!--container que abriga os repositorios-->
+                    <section class="container-repositorio">
+                        <!--divs de repositorios-->
+                        <div class="repositorios">
+                            <!--titulo dos repositorios-->
+                            <h3 class="nome-repositorio">desafio front</h3>
+                            <!--descrição do repositorio-->
+                            <p class="descriçao-repositorio">
+                                um desafio da incod
+                            </p>
 
+                            <img
+                                src="$"
+                                class="estrela-img"
+                            /><!--img estrela-->
+                            <span class="quantidade-estrela">estrelas: 5</span
+                            ><!--num de eestreçllas-->
+                            <button>
+                                <a href="*" class="link-repositorio"
+                                    >link repositorio</a
+                                ></button
+                            ><!--linkl do repositorio no proprio github-->
+                        </div>
+                    </section>
+                        <div class="repositorios">
+                            <!--titulo dos repositorios-->
+                            <h3 class="nome-repositorio">desafio front</h3>
+                            <!--descrição do repositorio-->
+                            <p class="descriçao-repositorio">
+                                um desafio da incod
+                            </p>
+
+                            <img
+                                src="$"
+                                class="estrela-img"
+                            /><!--img estrela-->
+                            <span class="quantidade-estrela">estrelas: 5</span
+                            ><!--num de eestreçllas-->
+                            <button>
+                                <a href="*" class="link-repositorio"
+                                    >link repositorio</a
+                                ></button
+                            ><!--linkl do repositorio no proprio github-->
+                        </div>
+                    </section>
+                        <div class="repositorios">
+                            <!--titulo dos repositorios-->
+                            <h3 class="nome-repositorio">desafio front</h3>
+                            <!--descrição do repositorio-->
+                            <p class="descriçao-repositorio">
+                                um desafio da incod
+                            </p>
+
+                            <img
+                                src="$"
+                                class="estrela-img"
+                            /><!--img estrela-->
+                            <span class="quantidade-estrela">estrelas: 5</span
+                            ><!--num de eestreçllas-->
+                            <button>
+                                <a href="*" class="link-repositorio"
+                                    >link repositorio</a
+                                ></button
+                            ><!--linkl do repositorio no proprio github-->
+                        </div>
+                    </section>
+                        <div class="repositorios">
+                            <!--titulo dos repositorios-->
+                            <h3 class="nome-repositorio">desafio front</h3>
+                            <!--descrição do repositorio-->
+                            <p class="descriçao-repositorio">
+                                um desafio da incod
+                            </p>
+
+                            <img
+                                src="$"
+                                class="estrela-img"
+                            /><!--img estrela-->
+                            <span class="quantidade-estrela">estrelas: 5</span
+                            ><!--num de eestreçllas-->
+                            <button>
+                                <a href="*" class="link-repositorio"
+                                    >link repositorio</a
+                                ></button
+                            ><!--linkl do repositorio no proprio github-->
+                        </div>
+                    </section>
+                        <div class="repositorios">
+                            <!--titulo dos repositorios-->
+                            <h3 class="nome-repositorio">desafio front</h3>
+                            <!--descrição do repositorio-->
+                            <p class="descriçao-repositorio">
+                                um desafio da incod
+                            </p>
+
+                            <img
+                                src="$"
+                                class="estrela-img"
+                            /><!--img estrela-->
+                            <span class="quantidade-estrela">estrelas: 5</span
+                            ><!--num de eestreçllas-->
+                            <button>
+                                <a href="*" class="link-repositorio"
+                                    >link repositorio</a
+                                ></button
+                            ><!--linkl do repositorio no proprio github-->
+                        </div>
+                    </section>
+                        <div class="repositorios">
+                            <!--titulo dos repositorios-->
+                            <h3 class="nome-repositorio">desafio front</h3>
+                            <!--descrição do repositorio-->
+                            <p class="descriçao-repositorio">
+                                um desafio da incod
+                            </p>
+
+                            <img
+                                src="$"
+                                class="estrela-img"
+                            /><!--img estrela-->
+                            <span class="quantidade-estrela">estrelas: 5</span
+                            ><!--num de eestreçllas-->
+                            <button>
+                                <a href="*" class="link-repositorio"
+                                    >link repositorio</a
+                                ></button
+                            ><!--linkl do repositorio no proprio github-->
+                        </div>
+                    </section>
+                </div>
+            </section>
         </main>
     </body>
 </html>
