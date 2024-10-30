@@ -1,108 +1,142 @@
 /*cassa que abriga tudo*/
-#main{
-    border: 1px solid red;
+#main {
+    border: 1px solid blue;
+}
+#principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /*titulo do conteudo*/
-#titulo{
-    border: 1px solid red;
+#titulo {
+    font-size: 24px;
+    display: flex;
+    margin: 0 0 0 -350px;
+    font-weight: 600;
 }
 /*sessao dos inputs*/
-.sessão-input{
-    border: 1px solid red;
+.sessão-input {
+    border: 2px solid #c9c9c9;
+    width: 800px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /*formulario*/
-#formulario{
-    border: 1px solid red;
+#formulario {
+    width: 778px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 4px;
+}
+.input {
+    border: 1px solid #c9c9c9;
+    display: flex;
+    width: 576px;
+    height: 35px;
+    align-items: center;
+    border-radius: 4px;
 }
 /*input de barra de texto*/
-#input-text{
-    border: 1px solid red;
+#input-text {
+    color: #b3b3b3;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 0 0 0 15px;
 }
 /*botão de enviar*/
-#botão{
-    border: 1px solid red;
-}
-/*img da lupa do botão*/
-#lupa-botao{
-    border: 1px solid red;
+#botão {
+    color: white;
+    background-color: black;
+    width: 115px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 400;
 }
 /*sessão que ira retonar oq o usuario digitou*/
-#sessao-retorno{
+#sessao-retorno {
     border: 1px solid red;
 }
 /*caso o repositorio nao tenha sido encontrado*/
-.retorno-invalido{
+.retorno-invalido {
     border: 1px solid red;
 }
 
 /*sessao que agrupa todo o retorno do git hub*/
-.retorno-valido{
+.retorno-valido {
     border: 1px solid red;
 }
 /*corpo do retorno valido*/
-.div-github{
+.div-github {
     border: 1px solid red;
 }
 /*div com  informações do usuario*/
-.div-usuario{
+.div-usuario {
     border: 1px solid red;
 }
 /*div com  informações do usuario*/
-#imagem-usuario{
+#imagem-usuario {
     border: 1px solid red;
 }
 /*nome usuario no github*/
-.nome-usuario{
+.nome-usuario {
     border: 1px solid red;
 }
 /*profissao  usuario no github*/
-.profisssao-usuario{
+.profisssao-usuario {
     border: 1px solid red;
 }
 /*nav de links do usuario github*/
-.nav-links{
+.nav-links {
     border: 1px solid red;
 }
- /*cada item da nav de links*/
-.item-link{
+/*cada item da nav de links*/
+.item-link {
     border: 1px solid red;
 }
 /*img dentro da nav de link*/
-.img-lista{
+.img-lista {
     border: 1px solid red;
 }
 
 /*container que abriga os repositorios*/
-.container-repositorio{
+.container-repositorio {
     border: 1px solid red;
 }
 
 /*divs de repositorios*/
-.repositorios{
+.repositorios {
     border: 1px solid red;
 }
 
 /*titulo dos repositorios*/
-.nome-repositorio{
+.nome-repositorio {
     border: 1px solid red;
 }
 
 /*descrição do repositorio*/
-.descriçao-repositorio{
+.descriçao-repositorio {
     border: 1px solid red;
 }
 
 /*imagem da estrela no repositorio*/
-.estrela-img{
+.estrela-img {
     border: 1px solid red;
 }
 
 /*quantidad ede estrela*/
-.quantidade-estrela{
+.quantidade-estrela {
     border: 1px solid red;
 }
 
 /*links do repositorio no proprio github*/
-.link-repositorio{
+.link-repositorio {
     border: 1px solid red;
 }
