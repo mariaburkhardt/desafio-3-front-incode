@@ -1,44 +1,40 @@
 /*cassa que abriga tudo*/
-#main {
-    border: 1px solid blue;
+#main{
+    border: 1px solid red;
 }
 /*titulo do conteudo*/
-#titulo {
+#titulo{
     border: 1px solid red;
 }
 /*sessao dos inputs*/
-.sessão-input {
-    border: 1.5px solid #c9c9c9;
+.sessão-input{
+    border: 1px solid red;
 }
 /*formulario*/
-#formulario {
-    border: 1px solid rgb(242, 0, 255);
+#formulario{
+    border: 1px solid red;
 }
 /*input de barra de texto*/
-#input-text {
+#input-text{
     border: 1px solid red;
 }
 /*botão de enviar*/
-#botão {
-    color: white;
-    background-color: black;
-    width: 115px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 4px;
+#botão{
+    border: 1px solid red;
+}
+/*img da lupa do botão*/
+#lupa-botao{
+    border: 1px solid red;
 }
 /*sessão que ira retonar oq o usuario digitou*/
-#sessao-retorno {
+#sessao-retorno{
     border: 1px solid red;
 }
 /*caso o repositorio nao tenha sido encontrado*/
-.retorno-invalido {
+.retorno-invalido{
     border: 1px solid red;
 }
 
-<<<<<<< HEAD
 /*sessao que agrupa todo o retorno do git hub*/
 .retorno-valido{
     border: 1px solid red;
@@ -110,6 +106,3 @@
 .link-repositorio{
     border: 1px solid red;
 }
-=======
-/**/
->>>>>>> d4b53bdca7926e56798ee966bb6ebdd11dce9af8
