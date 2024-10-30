@@ -1,37 +1,40 @@
 /*cassa que abriga tudo*/
-#main{
-    border: 1px solid red;
+#main {
+    border: 1px solid blue;
 }
 /*titulo do conteudo*/
-#titulo{
+#titulo {
     border: 1px solid red;
 }
 /*sessao dos inputs*/
-.sessão-input{
-    border: 1px solid red;
+.sessão-input {
+    border: 1.5px solid #c9c9c9;
 }
 /*formulario*/
-#formulario{
-    border: 1px solid red;
+#formulario {
+    border: 1px solid rgb(242, 0, 255);
 }
 /*input de barra de texto*/
-#input-text{
+#input-text {
     border: 1px solid red;
 }
 /*botão de enviar*/
-#botão{
-    border: 1px solid red;
-}
-/*img da lupa do botão*/
-#lupa-botao{
-    border: 1px solid red;
+#botão {
+    color: white;
+    background-color: black;
+    width: 115px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 4px;
 }
 /*sessão que ira retonar oq o usuario digitou*/
-#sessao-retorno{
+#sessao-retorno {
     border: 1px solid red;
 }
 /*caso o repositorio nao tenha sido encontrado*/
-.retorno-invalido{
+.retorno-invalido {
     border: 1px solid red;
 }
 
