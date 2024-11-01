@@ -66,6 +66,12 @@
     font-size: 11px;
     font-weight: 400;
 }
+ 
+
+/*Teste carregando*/
+.carregando {
+    display: none;
+}
 
 /*sessão que ira retonar oq o usuario digitou*/
 #sessao-retorno {

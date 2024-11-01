@@ -12,8 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         async function pegarUrl() {
             try {
+                         
+                const loading = document.createElement("p")
+                loading.textContent= 'carregando...';
+                sessaoRetorno.appendChild(loading);
+
                 const resposta = await fetch(url);
                 const data = await resposta.json();
+                
+                loading.classList.add("carregando");
 
                 // Limpa a sessão de retorno antes de adicionar o novo conteúdo
                 sessaoRetorno.innerHTML = "";
@@ -38,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const nomeUsuario = document.createElement("h2");
                 nomeUsuario.classList.add("nome-usuario");
-                nomeUsuario.textContent = data.name;
+                nomeUsuario.textContent = data.name ;
 
                 const profissaoUsuario = document.createElement("p");
                 profissaoUsuario.classList.add("profisssao-usuario");
@@ -169,5 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Limpa a sessão de retorno antes de exibir o erro
         sessaoRetorno.innerHTML = "";
         sessaoRetorno.appendChild(div);
+
+       
     }
 });
