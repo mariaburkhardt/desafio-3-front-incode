@@ -1,19 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const formulario = document.querySelector("#formulario");
-    const inputTexto = document.querySelector("#input-text");
-    const sessaoRetorno = document.querySelector("#sessao-retorno"); // Seleciona onde o retorno será inserido
+const formulario = document.querySelector("#formulario");
+const inputTexto = document.querySelector("#input-text");
+const sessaoRetorno = document.querySelector("#sessao-retorno"); // Seleciona onde o retorno será inserido
 
-    formulario.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const textoDigitado = inputTexto.value;
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const textoDigitado = inputTexto.value;
 
+    if (textoDigitado.trim() === "") {
+        alert("digite algo antes de enviar");
+    } else {
         const url = `https://api.github.com/users/${textoDigitado}`;
         const urlRepos = `https://api.github.com/users/${textoDigitado}/repos`;
 
         async function pegarUrl() {
             try {
+                const loading = document.createElement("p");
+                loading.textContent = "Carregando...";
+                sessaoRetorno.appendChild(loading);
+
                 const resposta = await fetch(url);
                 const data = await resposta.json();
+
+                loading.classList.add("carregando");
 
                 // Limpa a sessão de retorno antes de adicionar o novo conteúdo
                 sessaoRetorno.innerHTML = "";
@@ -38,11 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const nomeUsuario = document.createElement("h2");
                 nomeUsuario.classList.add("nome-usuario");
-                nomeUsuario.textContent = data.name;
+                nomeUsuario.textContent = data.name || "Usuário sem nome";
 
                 const profissaoUsuario = document.createElement("p");
                 profissaoUsuario.classList.add("profisssao-usuario");
-                profissaoUsuario.textContent = data.bio;
+                profissaoUsuario.textContent = data.bio || "Usuário sem bio";
 
                 usuarioNomeProfissao.appendChild(nomeUsuario);
                 usuarioNomeProfissao.appendChild(profissaoUsuario);
@@ -60,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         text: `${data.followers} seguidores`,
                     },
                     {
-                        src: "assets/imgs/seguindo.png",
+                        src: "assets/imgs/Ellipse 1.svg",
                         text: `${data.following} seguindo`,
                     },
                     {
@@ -70,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         src: "assets/imgs/encadeado.png",
                         text: data.blog || "Nenhum site",
+                        isLink: !!data.blog, // Define isLink como true se data.blog tiver um valor válido
                     },
                 ];
 
@@ -81,8 +90,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     img.src = link.src;
                     img.classList.add("img-lista");
 
+                    // Adiciona o ícone à lista
                     li.appendChild(img);
-                    li.appendChild(document.createTextNode(link.text));
+
+                    // Se `isLink` for verdadeiro, cria um link clicável com verificação de protocolo
+                    if (link.isLink) {
+                        const a = document.createElement("a");
+                        // Adiciona "https://" caso o link não comece com "http" ou "https"
+                        a.href = link.text.startsWith("http")
+                            ? link.text
+                            : `https://${link.text}`;
+                        a.target = "_blank";
+                        a.textContent = link.text;
+                        li.appendChild(a);
+                    } else {
+                        // Caso contrário, apenas exibe o texto alternativo
+                        li.appendChild(document.createTextNode(link.text));
+                    }
+
                     navLinks.appendChild(li);
                 });
 
@@ -155,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         pegarUrl();
-    });
+    }
 
     function criarRetornoInvalido() {
         const div = document.createElement("div");
