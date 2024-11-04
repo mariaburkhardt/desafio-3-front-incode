@@ -78,6 +78,7 @@ formulario.addEventListener("submit", (e) => {
                     {
                         src: "assets/imgs/encadeado.png",
                         text: data.blog || "Nenhum site",
+                        target:"_blank"
                     },
                 ];
 
