@@ -1,7 +1,7 @@
 # 📲:Consumindo API
 
 <div align="center">
-  <img src="./assets/images/readme-image1.png" width="90%">
+  <img src="./assets/imgs/imagem_readme.png" width="90%">
 
 [Sobre](#hippopotamus-sobre) • [Demonstração](#desktop_computer-demonstração) • [Desenvolvido com](#rocket-desenvolvido-com)
  • [Protótipo](#jigsaw-protótipo) • [Como executar](#bulb-como-executar) • [Autoras](#star-autora)
@@ -9,7 +9,7 @@
 </div>
 
 ### 💾: Sobre
-Terceiro desafio da trilha de front-end da Incode Tech School, a criação de um tela que simula a pesquisa usuários e repositrios do GitHub com o consumo da API fornecida pelo GitHub a partir de um protótipo feito no Figma.<br>Para testar meus conhecimentos sobre Javascript.
+Terceiro desafio da trilha de front-end da Incode Tech School, a criação de um tela que simula a pesquisa de usuários e de seus repositrios do GitHub consumindo a API fornecida pelo GitHub a partir de um protótipo feito no Figma.<br>Para testar meus conhecimentos sobre Javascript e consumo de APIs.
 
 ---
 
