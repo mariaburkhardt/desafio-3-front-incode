@@ -46,11 +46,11 @@ formulario.addEventListener("submit", (e) => {
 
                 const nomeUsuario = document.createElement("h2");
                 nomeUsuario.classList.add("nome-usuario");
-                nomeUsuario.textContent = data.name;
+                nomeUsuario.textContent = data.name || "Usuário sem nome";
 
                 const profissaoUsuario = document.createElement("p");
                 profissaoUsuario.classList.add("profisssao-usuario");
-                profissaoUsuario.textContent = data.bio;
+                profissaoUsuario.textContent = data.bio || "Usuário sem bio";
 
                 usuarioNomeProfissao.appendChild(nomeUsuario);
                 usuarioNomeProfissao.appendChild(profissaoUsuario);
@@ -78,6 +78,7 @@ formulario.addEventListener("submit", (e) => {
                     {
                         src: "assets/imgs/encadeado.png",
                         text: data.blog || "Nenhum site",
+                        isLink: !!data.blog, // Define isLink como true se data.blog tiver um valor válido
                     },
                 ];
 
@@ -89,8 +90,24 @@ formulario.addEventListener("submit", (e) => {
                     img.src = link.src;
                     img.classList.add("img-lista");
 
+                    // Adiciona o ícone à lista
                     li.appendChild(img);
-                    li.appendChild(document.createTextNode(link.text));
+
+                    // Se `isLink` for verdadeiro, cria um link clicável com verificação de protocolo
+                    if (link.isLink) {
+                        const a = document.createElement("a");
+                        // Adiciona "https://" caso o link não comece com "http" ou "https"
+                        a.href = link.text.startsWith("http")
+                            ? link.text
+                            : `https://${link.text}`;
+                        a.target = "_blank";
+                        a.textContent = link.text;
+                        li.appendChild(a);
+                    } else {
+                        // Caso contrário, apenas exibe o texto alternativo
+                        li.appendChild(document.createTextNode(link.text));
+                    }
+
                     navLinks.appendChild(li);
                 });
 
