@@ -68,7 +68,7 @@ formulario.addEventListener("submit", (e) => {
                         text: `${data.followers} seguidores`,
                     },
                     {
-                        src: "assets/imgs/Ellipse 1.svg",
+                        src: "assets/imgs/seguindo.svg",
                         text: `${data.following} seguindo`,
                     },
                     {
