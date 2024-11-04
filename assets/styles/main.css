@@ -67,6 +67,12 @@
     font-weight: 400;
 }
 
+/*Teste carregando*/
+.carregando {
+    display: none;
+    margin: 0 0 30px 0;
+}
+
 /*sessão que ira retonar oq o usuario digitou*/
 #sessao-retorno {
     display: flex;
@@ -79,7 +85,7 @@
 .retorno-invalido {
     display: flex;
     align-self: start;
-    margin: 0 0 0 30px;
+    margin: 0 0 20px 30px;
     font-size: 15px;
 }
 
@@ -169,8 +175,10 @@
 
 /*titulo dos repositorios*/
 .nome-repositorio {
+    width: 100%;
     font-size: 15px;
     margin: 0 0 3px;
+    word-wrap: break-word;
 }
 
 /*descrição do repositorio*/
