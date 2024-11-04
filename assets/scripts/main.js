@@ -1,182 +1,189 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const formulario = document.querySelector("#formulario");
-    const inputTexto = document.querySelector("#input-text");
-    const sessaoRetorno = document.querySelector("#sessao-retorno"); // Seleciona onde o retorno será inserido
+const formulario = document.querySelector("#formulario");
+const inputTexto = document.querySelector("#input-text");
+const sessaoRetorno = document.querySelector("#sessao-retorno"); // Seleciona onde o retorno será inserido
 
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
         const textoDigitado = inputTexto.value;
 
-        const url = `https://api.github.com/users/${textoDigitado}`;
-        const urlRepos = `https://api.github.com/users/${textoDigitado}/repos`;
+        if(textoDigitado.trim() === ""){
+            alert("digite algo antes de enviar");
+        }
+        else{
 
-        async function pegarUrl() {
-            try {
-                         
-                const loading = document.createElement("p")
-                loading.textContent= 'carregando...';
-                sessaoRetorno.appendChild(loading);
+            const url = `https://api.github.com/users/${textoDigitado}`;
+            const urlRepos = `https://api.github.com/users/${textoDigitado}/repos`;
 
-                const resposta = await fetch(url);
-                const data = await resposta.json();
-                
-                loading.classList.add("carregando");
+            async function pegarUrl() {
+                try {
+                            
+                    const loading = document.createElement("p")
+                    loading.textContent= 'Carregando...';
+                    sessaoRetorno.appendChild(loading);
 
-                // Limpa a sessão de retorno antes de adicionar o novo conteúdo
-                sessaoRetorno.innerHTML = "";
+                    const resposta = await fetch(url);
+                    const data = await resposta.json();
+                    
+                    loading.classList.add("carregando");
 
-                // Cria o container para o usuário
-                const retornoValido = document.createElement("div");
-                retornoValido.classList.add("retorno-valido");
+                    // Limpa a sessão de retorno antes de adicionar o novo conteúdo
+                    sessaoRetorno.innerHTML = "";
 
-                const divUsuario = document.createElement("div");
-                divUsuario.classList.add("div-usuario");
+                    // Cria o container para o usuário
+                    const retornoValido = document.createElement("div");
+                    retornoValido.classList.add("retorno-valido");
 
-                // Div com informações do usuário
-                const infosUsuario = document.createElement("div");
-                infosUsuario.classList.add("infos-usuario");
+                    const divUsuario = document.createElement("div");
+                    divUsuario.classList.add("div-usuario");
 
-                const imgPerfil = document.createElement("img");
-                imgPerfil.src = data.avatar_url;
-                imgPerfil.id = "imagem-usuario";
+                    // Div com informações do usuário
+                    const infosUsuario = document.createElement("div");
+                    infosUsuario.classList.add("infos-usuario");
 
-                const usuarioNomeProfissao = document.createElement("div");
-                usuarioNomeProfissao.classList.add("usuario-nome-profissao");
+                    const imgPerfil = document.createElement("img");
+                    imgPerfil.src = data.avatar_url;
+                    imgPerfil.id = "imagem-usuario";
 
-                const nomeUsuario = document.createElement("h2");
-                nomeUsuario.classList.add("nome-usuario");
-                nomeUsuario.textContent = data.name ;
+                    const usuarioNomeProfissao = document.createElement("div");
+                    usuarioNomeProfissao.classList.add("usuario-nome-profissao");
 
-                const profissaoUsuario = document.createElement("p");
-                profissaoUsuario.classList.add("profisssao-usuario");
-                profissaoUsuario.textContent = data.bio;
+                    const nomeUsuario = document.createElement("h2");
+                    nomeUsuario.classList.add("nome-usuario");
+                    nomeUsuario.textContent = data.name ;
 
-                usuarioNomeProfissao.appendChild(nomeUsuario);
-                usuarioNomeProfissao.appendChild(profissaoUsuario);
+                    const profissaoUsuario = document.createElement("p");
+                    profissaoUsuario.classList.add("profisssao-usuario");
+                    profissaoUsuario.textContent = data.bio;
 
-                infosUsuario.appendChild(imgPerfil);
-                infosUsuario.appendChild(usuarioNomeProfissao);
+                    usuarioNomeProfissao.appendChild(nomeUsuario);
+                    usuarioNomeProfissao.appendChild(profissaoUsuario);
 
-                // Nav de links
-                const navLinks = document.createElement("ul");
-                navLinks.classList.add("nav-links");
+                    infosUsuario.appendChild(imgPerfil);
+                    infosUsuario.appendChild(usuarioNomeProfissao);
 
-                const links = [
-                    {
-                        src: "assets/imgs/seguidores.png",
-                        text: `${data.followers} seguidores`,
-                    },
-                    {
-                        src: "assets/imgs/seguindo.png",
-                        text: `${data.following} seguindo`,
-                    },
-                    {
-                        src: "assets/imgs/localizacao.png",
-                        text: data.location || "Localização desconhecida",
-                    },
-                    {
-                        src: "assets/imgs/encadeado.png",
-                        text: data.blog || "Nenhum site",
-                    },
-                ];
+                    // Nav de links
+                    const navLinks = document.createElement("ul");
+                    navLinks.classList.add("nav-links");
 
-                links.forEach((link) => {
-                    const li = document.createElement("li");
-                    li.classList.add("item-link");
+                    const links = [
+                        {
+                            src: "assets/imgs/seguidores.png",
+                            text: `${data.followers} seguidores`,
+                        },
+                        {
+                            src: "assets/imgs/Ellipse 1.svg",
+                            text: `${data.following} seguindo`,
+                        },
+                        {
+                            src: "assets/imgs/localizacao.png",
+                            text: data.location || "Localização desconhecida",
+                        },
+                        {
+                            src: "assets/imgs/encadeado.png",
+                            text: data.blog || "Nenhum site",
+                        },
+                    ];
 
-                    const img = document.createElement("img");
-                    img.src = link.src;
-                    img.classList.add("img-lista");
+                    links.forEach((link) => {
+                        const li = document.createElement("li");
+                        li.classList.add("item-link");
 
-                    li.appendChild(img);
-                    li.appendChild(document.createTextNode(link.text));
-                    navLinks.appendChild(li);
-                });
+                        const img = document.createElement("img");
+                        img.src = link.src;
+                        img.classList.add("img-lista");
 
-                divUsuario.appendChild(infosUsuario);
-                divUsuario.appendChild(navLinks);
+                        li.appendChild(img);
+                        li.appendChild(document.createTextNode(link.text));
+                        navLinks.appendChild(li);
+                    });
 
-                retornoValido.appendChild(divUsuario);
+                    divUsuario.appendChild(infosUsuario);
+                    divUsuario.appendChild(navLinks);
 
-                // Adiciona a div do usuário na seção de retorno
-                sessaoRetorno.appendChild(retornoValido);
+                    retornoValido.appendChild(divUsuario);
 
-                // Busca os repositórios
-                const repos = await fetch(urlRepos);
-                const reposData = await repos.json();
+                    // Adiciona a div do usuário na seção de retorno
+                    sessaoRetorno.appendChild(retornoValido);
 
-                // Cria o container para os repositórios
-                const containerRepositorio = document.createElement("section");
-                containerRepositorio.classList.add("container-repositorio");
+                    // Busca os repositórios
+                    const repos = await fetch(urlRepos);
+                    const reposData = await repos.json();
 
-                reposData.forEach((r) => {
-                    const repositorio = document.createElement("div");
-                    repositorio.classList.add("repositorios");
+                    // Cria o container para os repositórios
+                    const containerRepositorio = document.createElement("section");
+                    containerRepositorio.classList.add("container-repositorio");
 
-                    const nomeRepositorio = document.createElement("h3");
-                    nomeRepositorio.classList.add("nome-repositorio");
-                    nomeRepositorio.textContent = r.name;
+                    reposData.forEach((r) => {
+                        const repositorio = document.createElement("div");
+                        repositorio.classList.add("repositorios");
 
-                    const descricaoRepositorio = document.createElement("p");
-                    descricaoRepositorio.classList.add("descriçao-repositorio");
-                    descricaoRepositorio.textContent =
-                        r.description || "Sem descrição";
+                        const nomeRepositorio = document.createElement("h3");
+                        nomeRepositorio.classList.add("nome-repositorio");
+                        nomeRepositorio.textContent = r.name;
 
-                    const quantidadeEstrela = document.createElement("span");
-                    quantidadeEstrela.classList.add("quantidade-estrela");
+                        const descricaoRepositorio = document.createElement("p");
+                        descricaoRepositorio.classList.add("descriçao-repositorio");
+                        descricaoRepositorio.textContent =
+                            r.description || "Sem descrição";
 
-                    const imgEstrela = document.createElement("img");
-                    imgEstrela.src = "assets/imgs/estrela.png";
-                    quantidadeEstrela.appendChild(imgEstrela);
-                    quantidadeEstrela.appendChild(
-                        document.createTextNode(
-                            ` estrelas: ${r.stargazers_count}`
-                        )
-                    );
+                        const quantidadeEstrela = document.createElement("span");
+                        quantidadeEstrela.classList.add("quantidade-estrela");
 
-                    const btnLinkRepositorio = document.createElement("button");
-                    btnLinkRepositorio.classList.add("btn-link-repositorio");
+                        const imgEstrela = document.createElement("img");
+                        imgEstrela.src = "assets/imgs/estrela.png";
+                        quantidadeEstrela.appendChild(imgEstrela);
+                        quantidadeEstrela.appendChild(
+                            document.createTextNode(
+                                ` estrelas: ${r.stargazers_count}`
+                            )
+                        );
 
-                    const linkRepositorio = document.createElement("a");
-                    linkRepositorio.href = r.html_url;
-                    linkRepositorio.classList.add("link-repositorio");
-                    linkRepositorio.textContent = "Ver no Github";
-                    linkRepositorio.target = "_blank"; // Abre o link em uma nova aba
+                        const btnLinkRepositorio = document.createElement("button");
+                        btnLinkRepositorio.classList.add("btn-link-repositorio");
 
-                    btnLinkRepositorio.appendChild(linkRepositorio);
+                        const linkRepositorio = document.createElement("a");
+                        linkRepositorio.href = r.html_url;
+                        linkRepositorio.classList.add("link-repositorio");
+                        linkRepositorio.textContent = "Ver no Github";
+                        linkRepositorio.target = "_blank"; // Abre o link em uma nova aba
 
-                    repositorio.appendChild(nomeRepositorio);
-                    repositorio.appendChild(descricaoRepositorio);
-                    repositorio.appendChild(quantidadeEstrela);
-                    repositorio.appendChild(btnLinkRepositorio);
+                        btnLinkRepositorio.appendChild(linkRepositorio);
 
-                    containerRepositorio.appendChild(repositorio);
-                });
+                        repositorio.appendChild(nomeRepositorio);
+                        repositorio.appendChild(descricaoRepositorio);
+                        repositorio.appendChild(quantidadeEstrela);
+                        repositorio.appendChild(btnLinkRepositorio);
 
-                // Adiciona o container dos repositórios ao retorno
-                retornoValido.appendChild(containerRepositorio);
-            } catch (e) {
-                console.log(e);
-                criarRetornoInvalido();
+                        containerRepositorio.appendChild(repositorio);
+                    });
+
+                    // Adiciona o container dos repositórios ao retorno
+                    retornoValido.appendChild(containerRepositorio);
+                } catch (e) {
+                    console.log(e);
+                    criarRetornoInvalido();
+                }
             }
+
+            pegarUrl();
         }
 
-        pegarUrl();
+        function criarRetornoInvalido() {
+            const div = document.createElement("div");
+            div.classList.add("retorno-invalido");
+    
+            const p = document.createElement("p");
+            p.textContent =
+                "Nenhum repositório encontrado. Faça uma busca para ver os resultados.";
+            div.appendChild(p);
+            
+            // Limpa a sessão de retorno antes de exibir o erro
+            sessaoRetorno.innerHTML = "";
+            sessaoRetorno.appendChild(div);
+    
+           
+        }
     });
 
-    function criarRetornoInvalido() {
-        const div = document.createElement("div");
-        div.classList.add("retorno-invalido");
+    
 
-        const p = document.createElement("p");
-        p.textContent =
-            "Nenhum repositório encontrado. Faça uma busca para ver os resultados.";
-        div.appendChild(p);
-
-        // Limpa a sessão de retorno antes de exibir o erro
-        sessaoRetorno.innerHTML = "";
-        sessaoRetorno.appendChild(div);
-
-       
-    }
-});
